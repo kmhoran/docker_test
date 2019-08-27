@@ -11,4 +11,5 @@ RUN dotnet publish DockerWeb/DockerWeb.csproj -c Release -o /app/out
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 WORKDIR /app/
 COPY --from=build-env /app/out ./
+EXPOSE 5000
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
